@@ -1,0 +1,29 @@
+{# app/Resources/views/default/show.html.twig #}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+<table>
+<th colspan=3>Task</th>
+{% for task in TasksList %}  
+    <tr>
+    <td><div onclick="location.href='../markcomplete/{{task.id}}'";>
+    {% if task.complete == 1 %}
+        <input type=checkbox checked>
+    {% else %}
+        <input type=checkbox>
+    {% endif %}
+    </div></td>
+    <td><div onclick="location.href='../update/{{task.id}}'";>
+    {{task.name}}
+    </div></td>
+    <td><div onclick="location.href='../deletetask/{{task.id}}'";>
+    {% image '@AppBundle/Resources/img/delete.png'  output="images/delete.png" %}
+    <img src="{{ asset_url }}" width="100%" height="100%" alt="my alt of image" class="pull-left">
+    {% endimage %}
+    </div></td>
+    </tr>
+{% endfor %}
+</table>
+<BR>
+<div onclick="location.href='../deletecompleted'";>Delete completed tasks</div>

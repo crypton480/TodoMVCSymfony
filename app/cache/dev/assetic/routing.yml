@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /home/tanmay/symfony/TodoMVCSymfony/app/config/routing_dev.yml

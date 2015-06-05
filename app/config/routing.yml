@@ -1,0 +1,28 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+index:
+    path: /
+    defaults: { _controller: AppBundle:Default:index}
+
+show:
+    path: app/show/
+    defaults: { _controller: AppBundle:Default:show }
+
+update:
+    path: app/update/
+    defaults: { _controller: AppBundle:Default:update}
+
+markcomplete:
+    path: app/markcomplete/
+    defaults: { _controller: AppBundle:Default:markcomplete}
+
+deletetask:
+    path: app/deletetask/
+    defaults: { _controller: AppBundle:Default:deletetask }
+
+deletecompleted:
+    path: app/deletecompleted/
+    defaults: { _controller: AppBundle:Default:deletecompleted }
+
