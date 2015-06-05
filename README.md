@@ -12,3 +12,5 @@ Instructions:
 >cd /path/to/TodoMVCSymfony
 
 >app/console server:run
+
+>Navigate to localhost:8000
