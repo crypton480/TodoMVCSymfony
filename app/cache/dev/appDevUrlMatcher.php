@@ -25,6 +25,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $allow = array();
         $pathinfo = rawurldecode($pathinfo);
 
+        if (0 === strpos($pathinfo, '/js/hide')) {
+            // _assetic_e029b99
+            if ($pathinfo === '/js/hide.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'e029b99',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_e029b99',);
+            }
+
+            // _assetic_e029b99_0
+            if ($pathinfo === '/js/hide_hide_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'e029b99',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_e029b99_0',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/images/delete')) {
             // _assetic_7ef13eb
             if ($pathinfo === '/images/delete.png') {

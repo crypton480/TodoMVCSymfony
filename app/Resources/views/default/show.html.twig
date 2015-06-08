@@ -1,34 +1,48 @@
 {# app/Resources/views/default/show.html.twig #}
+
+{% javascripts '@AppBundle/Resources/js/hide.js' output="js/hide.js" %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+
 {{ form_start(form) }}
 {{ form_widget(form) }}
 {{ form_end(form) }}
 
-<table>
-<th colspan=3>Task</th>
+<ul style="list-style-type: none">
 {% for task in TasksList %}  
-    <tr>
-    <td><div onclick="location.href='../markcomplete/{{task.id}}'";>
+    {% if task.complete == 1 %}
+    <li class='checked'>
+    {% else %}
+    <li class='unchecked'>
+    {% endif %}
+
+    <div style="display:inline" onclick="location.href='../markcomplete/{{task.id}}'";>
     {% if task.complete == 1 %}
         <input type=checkbox checked>
     {% else %}
         <input type=checkbox>
     {% endif %}
-    </div></td>
-    <td><div onclick="location.href='../update/{{task.id}}'";>
+    </div>
+    <div style="display:inline" onclick="location.href='../update/{{task.id}}'";>
     {{task.name}}
-    </div></td>
-    <td><div onclick="location.href='../deletetask/{{task.id}}'";>
+    </div>
+    <div style="display:inline" onclick="location.href='../deletetask/{{task.id}}'";>
     {% image '@AppBundle/Resources/img/delete.png'  output="images/delete.png" %}
-    <img src="{{ asset_url }}" width="100%" height="100%" alt="my alt of image" class="pull-left">
+    <img src="{{ asset_url }}"  alt="my alt of image" class="pull-left">
     {% endimage %}
-    </div></td>
-    </tr>
+    </div>
 {% endfor %}
-</table>
+</ul>
 <BR>
 <div style="cursor : pointer" onclick="location.href='../deletecompleted'";>
 <font color=red>
 Delete completed tasks</font></div>
+<div text-align:center;>
+<div style="cursor : pointer" onclick='showAll()'>Show All</div>
+<div style="cursor : pointer" onclick='showChecked()'>Show Checked</div>
+<div style="cursor : pointer" onclick='showUnchecked()'>Show Unchecked</div>
+</div>
 
 <BR>
 Notes:
