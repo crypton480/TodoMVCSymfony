@@ -141,11 +141,13 @@ Delete completed tasks</font></div>
 </div>
 
 <BR>
+
 Notes:
 <ul>
 <li>Click on task to modify
 <li>Go to localhost:8000/config.php to configure MySQL
 </ul>
+
 ";
     }
 
